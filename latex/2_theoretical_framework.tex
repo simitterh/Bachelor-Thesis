@@ -1,0 +1,113 @@
+\subsection{Utility}
+
+Although utility was originally introduced by philosophers and economists as a measure of happiness and overall pleasure, in the context of modern economics it is rather used as a tool to model worth or value. Overall this concept is based on the description of preferences and has more of a comparative character \citep[p. 54]{varian2010intermediate}.\\
+
+\noindent A utility function $u(x, y)$ determines the utility which results from the consumption of a certain bundle of goods $(x, y)$ as a numerical value such that a larger number indicates a higher preference. This helps to illustrate the order of preference, however, the numerical magnitude has no intrinsic meaning \citep[p. 90]{nicholson2016microeconomic}. Therefore, it is not possible to say that something gives twice as much utility as something else, as is attempted, for example, in the cardinal utility approach. The focus here is solely on ordering bundles based on the utility generated. To describe choice behavior, ordinal utility is sufficient. For example, if a monotonic transformation such as $f(u) = 2 \cdot u$ is applied to a particular utility function, the value of the utility obtained changes (doubles in this case), but the ordering of our preferences remains the same \citep[p. 56]{nicholson2016microeconomic}.\\
+
+\noindent Nevertheless, it is possible and desirable to search for bundles which have the same utility. All bundles with the same constant utility $u(x_i, y_i) = k$ can be grouped into a set called the level set \citep[p. 59]{varian2010intermediate}. The graphical representation of the level set is called the indifference curve. The consumer is indifferent to all bundles on the indifference curve because they all lead to the same utility level.\\
+For different utility levels different indifference curves are displayed. A utility function can be interpreted geometrically as a way of labeling the indifference curves \citep[p. 57]{varian2010intermediate}. A monotonic transformation would consequently mean a relabeling of the indifference curves.
+
+\bigskip
+
+\subsection{Marginal utility}
+
+\noindent Given the utility that a consumer derives from consumption today and tomorrow, $u(c_0, c_1)$, the rate of change in utility as the consumption in one point of time is increased by a small margin $\Delta c_0$, is called marginal utility $MU_{c_0}$.\\
+If the additional value is infinitesimally small, one obtains the partial derivative of the utility function, which is equal to the slope of the utility function with respect to $c_0$ while $c_1$ remains fixed \citep[p. 70]{varian2010intermediate}:
+
+\begin{equation}
+    MU_{c_0} = \lim_{\Delta c_0 \to 0} \frac{u(c_0 + \Delta c_0, c_1) - u(c_0, c_1)}{\Delta c_0} = \frac{\partial u(c_0, c_1)}{\partial c_0}.
+\end{equation}
+
+\bigskip
+
+\noindent The numerical magnitude also has no actual meaning, since it depends on the utility function in question. But it helps to identify where a small increase in immediate consumption would have a large impact on total utility.
+
+\bigskip
+
+\subsection{Expected utility}
+
+If a consumer has to make a choice under uncertainty he/she might take into account the probabilities of different scenarios. The expected utility can then be expressed as a weighted sum of the utility functions in each state, where the weights are given by the probabilities \citep[p. 223]{varian2010intermediate}. A utility function of the form 
+
+\begin{equation}
+    U=\sum_i \pi_i u(c_i)
+\end{equation}
+
+\bigskip
+
+\noindent is called a von Neumann-Morgenstern utility function.
+
+\bigskip
+
+
+\subsection{Risk aversion}
+
+Whether an agent is risk-averse or risk-seeking depends on the expected utility function. A risk-averse agent would rather choose a gamble with low uncertainty over a gamble with high uncertainty, even if the expected payoff of the relatively risky gamble is equal or slightly higher compared to the expected payoff of the relatively safe gamble \citep[p. 104]{arrow1996risk}.\\
+Conversely, this means that a risk-averse agent is willing to trade risk for some amount of return \citep[p. 122]{pratt1964risk} and the higher the risk aversion, the higher the amount the actor would be willing to pay for insurance.\\
+
+\noindent One way to measure risk aversion is the concavity index or Arrow-Pratt measure of absolute risk aversion \citep[p. 1339]{wakker2008crra}
+
+\begin{equation}
+    A(c) = - \dfrac{u''(c)}{u'(c)}.
+\end{equation}
+
+\bigskip
+
+\noindent The Arrow-Pratt measure of relative risk aversion is
+
+\begin{equation}
+    R(c) = - \dfrac{c \cdot u''(c)}{u'(c)},
+\end{equation}
+
+\bigskip
+
+\noindent which, unlike the former, is dimensionless \citep[p. 363]{simon1994mathematics}. Relative risk aversion \lq\lq is useful in analyzing risks expressed as a proportion of the gamble for example investment rates of return" \citep[p. 39]{ingersoll1987theory}.
+
+\bigskip
+
+
+
+\subsection{Isoelastic utility function}
+
+\noindent To model the utility created by today's consumption and expected utility of tomorrow's consumption (the value of the investor's portfolio at $t=1$) the isoelastic utility function or power utility function (see equation \ref{eqn:isoelastic}) will be applied. \\
+This function belongs to the class of hyperbolic absolute risk aversion functions, which are also called linear risk tolerance utility functions. This means that risk tolerance, which is the reciprocal of the absolute risk aversion, is a linear affine function in consumption \citep[p. 39]{ingersoll1987theory}:
+
+\begin{equation}
+    T(c) = \dfrac{1}{A(c)} = \dfrac{c}{1-\gamma} + \dfrac{b}{a} = - \dfrac{u'(c)}{u''(c)}.
+\end{equation}
+
+\bigskip
+
+\noindent A special property of the power utility function is the constant relative risk aversion:
+
+\begin{equation}
+    \begin{split}
+        & u'(c) = c^{-\gamma} \\
+        & u''(c) = -\gamma \cdot c^{-\gamma -1}
+    \end{split}
+\end{equation}
+
+\bigskip
+
+\begin{equation}
+    R(c) = - \dfrac{c \cdot u''(c)}{u'(c)} = \gamma.
+\end{equation}
+
+\bigskip
+
+\noindent The utility function $u(c)$ of a risk-averse agent is increasing, strictly concave and has positive absolute risk aversion \citep[p. 2]{poon2018finance}, provided that $c \geq 0$:
+
+\begin{equation}\label{eq:ut.func.derivatives}
+    u'(c) > 0, \quad u''(c) < 0 \quad \text{and} \quad A(c) > 0.
+\end{equation}
+
+\bigskip
+
+\noindent Due to the negative second derivative and therefore strictly monotonically decreasing slope the first marginal unit of consumption has the largest impact $\lim_{c \to 0} u'(c) = \infty$. Thus, the so-called INADA-condition is satisfied. At the same time the effect of an additional unit of input converges to zero when an infinite amount of input is used $\lim_{c \to \infty} u'(c) = 0$ \citep[p. 20]{Uzawa1971sectormodel}. This is referred to as \lq\lq saturation effect\lq\lq. \label{INADA}\\
+
+\noindent With the isoelastic utility function an agent's risk behaviour depends on the constant relative risk aversion $\gamma$. If $\gamma$ is positive, then the actor is risk-averse, otherwise they would be risk seeking, $\gamma = 0$ corresponds to risk neutrality.\\
+
+\noindent The case of $\gamma \rightarrow 1$ can be studied using L'Hospital's rule. For this case, the utility function is equal to the logarithmic function.\\
+
+\noindent In applying the utility function, it is assumed that the quantity consumed cannot be less than zero. In fact, as the function approaches zero the utility diverges to minus infinity, if the agent has a risk aversion larger or equal to $1$. The zero-utility of a less risk-averse agent $(0 < \gamma<1)$ equals $u(0) = -\frac{1}{1-\gamma}$. \\
+The limit approaching infinity does also depend on the value of relative risk aversion. If $\gamma \leq 1$, then the function diverges, but if $\gamma > 1$, then the value of the utility function converges to 
+$\lim_{c \to \infty} u(c) = \frac{1}{\gamma -1}$. \label{isoel.ut.f:limits}

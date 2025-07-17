@@ -1,0 +1,351 @@
+\subsection{Scenario 2}
+
+\noindent Compared to scenario 1, now the investor has a second option to invest his capital in order to receive consumption at t=1, a riskless investment. Therefore, there are additions in the constraints, the objective function of the optimization problem remains the same:
+
+\begin{equation}\label{eq:opt.prob2}
+\begin{split}
+    U(x, y) &= u(c_0) + \beta \cdot \sum_{i=1}^{N} \pi_i \cdot u(c_{1,i}) \quad \rightarrow \quad \max_{x, y}\\
+    \text{subject to} &\\
+    c_0 & = K - x \cdot p_0 - y \cdot b_0 \\
+    c_{1,i} & = x \cdot d_{1,i} + y \cdot 1 \\
+    x & \geq 0\\
+    y & \geq 0
+\end{split}   
+\end{equation}
+
+\bigskip
+
+\noindent The Lagrangian, which belongs to this optimization problem is
+
+\begin{multline}\label{eq:lagr_riskless}
+    L(\lambda_i, x, \mu_x, y, \mu_y) = u(c_0) + \beta \cdot \sum_{i=1}^{N} \pi_i \cdot u(c_{1,i}) + \lambda_0 \cdot (K-x p_0 - y b_0 -c_0) + \\ + \sum_{i=1}^{N} \lambda_i \cdot (x d_{1,i} + y \cdot 1 - c_{1,i}) + \mu_x \cdot x + \mu_y \cdot y
+\end{multline}
+
+\bigskip
+
+\noindent Next, the first order conditions of optimality are formulated:
+
+\begin{minipage}{0.48\textwidth}
+    \begin{subequations}\label{eq:lagr2,lambda_0}
+    \begin{align}
+        \frac{\partial L}{\partial \lambda_0} = K - xp_0 - yb_0 - c_0 & \geq 0 \\
+        \lambda_0 & \geq 0 \\
+        \lambda_0 \cdot \frac{\partial L}{\partial \lambda_0} & = 0
+    \end{align}
+    \end{subequations}
+\end{minipage}
+\begin{minipage}{0.48\textwidth}
+    \begin{subequations}\label{eq:lagr2,lambda_i}
+    \begin{align}
+        \frac{\partial L}{\partial \lambda_i} = x d_{1,i} + y - c_{1,i} & \geq 0\\
+        \lambda_i & \geq 0\\
+        \lambda_i \cdot \frac{\partial L}{\partial \lambda_i} & = 0
+    \end{align}
+    \end{subequations}    
+\end{minipage}
+
+\bigskip
+
+\begin{minipage}{0.48\textwidth}
+    \begin{subequations}\label{eq:lagr2,c_0}
+    \begin{align}
+        \frac{\partial L}{\partial c_0} = u'(c_0) - \lambda_0 & \leq 0\\
+        c_0 & \geq 0 \\
+        c_0 \cdot \frac{\partial L}{\partial c_0} & = 0
+    \end{align}
+    \end{subequations}
+\end{minipage}\hfill
+\begin{minipage}{0.48\textwidth}
+    \begin{subequations}\label{eq:lagr2,c_i}
+    \begin{align}
+        \frac{\partial L}{\partial c_{1,i}} = \beta \pi_i u'(c_{1,i}) - \lambda_i & \leq 0\\
+        c_{1,i} & \geq 0 \\
+        c_{1,i} \cdot \frac{\partial L}{\partial c_{1,i}} & = 0
+    \end{align}
+    \end{subequations}    
+\end{minipage}\hfill
+
+\bigskip
+
+\begin{minipage}{0.48\textwidth}
+    \begin{subequations}\label{eq:lagr2,mu_x}
+    \begin{align}
+        \frac{\partial L}{\partial \mu_x} = x & \geq 0\\
+        \mu_x & \geq 0 \\
+        \mu_x \cdot \frac{\partial L}{\partial \mu_x} & = 0
+    \end{align}
+    \end{subequations}    
+\end{minipage}\hfill
+\begin{minipage}{0.48\textwidth}
+    \begin{subequations}\label{eq:lagr2,mu_y}
+    \begin{align}
+        \frac{\partial L}{\partial \mu_y} = y & \geq 0\\
+        \mu_y & \geq 0 \\
+        \mu_y \cdot \frac{\partial L}{\partial \mu_y} & = 0
+    \end{align}
+    \end{subequations}    
+\end{minipage}\hfill
+
+\bigskip
+
+\begin{minipage}{0.48\textwidth}
+    \begin{subequations}\label{eq:lagr2,x}
+    \begin{align}
+        \frac{\partial L}{\partial x} = -\lambda_0 p_0 + \sum_{i=1}^{N} \lambda_i d_{1,i} & \leq 0\\
+        x & \geq 0 \\
+        x \cdot \frac{\partial L}{\partial x} & = 0
+    \end{align}
+    \end{subequations}    
+\end{minipage}
+\begin{minipage}{0.48\textwidth}
+    \begin{subequations}\label{eq:lagr2,y}
+    \begin{align}
+        \frac{\partial L}{\partial y} = -\lambda_0 b_0 + \sum_{i=1}^{N} \lambda_i & \leq 0\\
+        y & \geq 0 \\
+        y \cdot \frac{\partial L}{\partial y} & = 0
+    \end{align}
+    \end{subequations}    
+\end{minipage}
+
+\vspace{10mm}
+
+\noindent Again, due to the satisfied INADA condition, $c_0$ and $c_{1,i}$ must be strictly positive. From condition \eqref{eq:lagr2,c_0} and $c_0 > 0$ follows that
+
+\begin{equation}\label{eq:opt.cond.2.lambda_0}
+    \lambda_0 = u'(c_0),
+\end{equation}
+
+\bigskip
+
+\noindent which is strictly positive as well. $\lambda_0$ is the lagrange multiplier of the budget constraint, i.e., the marginal value of an additional unit of initial wealth. Equation \eqref{eq:opt.cond.2.lambda_0} can be applied to condition \eqref{eq:lagr2,lambda_0} and it can be concluded that the first constraint of the optimization problem \eqref{eq:opt.prob2} is binding, as already assumed.\\
+Similarly, from $c_{1,i} > 0$ one can conclude by the condition \eqref{eq:lagr2,c_i} that
+
+\begin{equation}\label{eq:opt.cond.2.lambda_i}
+    \lambda_i = \beta \pi_i u'(c_{1,i}) \quad \Rightarrow \quad \dfrac{\lambda_i}{\lambda_0}=m_i \cdot \pi_i.
+\end{equation}
+
+\bigskip
+
+\noindent Since $\lambda_i$ is also strictly positive, the condition \eqref{eq:lagr2,lambda_i} can be applied, which leads to the conclusion that also the second boundary condition of the problem \eqref{eq:opt.prob2} must be binding.\\
+
+\noindent It is, however, not immediately clear, whether the investor optimally builds a portfolio from both assets (the riskless and the risky asset) or whether she only uses one of those. The case of no investment is technically also an opportunity, but can be ruled out later. The four cases to be examined are the following:
+
+\begin{align*}
+    (I)& \quad   x = 0,\ y = 0      \\
+    (II)& \quad   x > 0,\ y = 0     \\
+    (III)& \quad   x = 0,\ y > 0    \\
+    (IV)& \quad   x > 0,\ y > 0
+\end{align*}
+
+\bigskip
+
+\noindent Case $(I)$ can be ruled out, since
+
+\begin{equation*}
+    c_{1,i} = x \cdot d_{1,i} + y \cdot 1
+\end{equation*}
+
+\bigskip
+
+\noindent is binding and $c_{1,i} > 0$. \\
+
+\noindent In case $(II)$ one has
+
+\begin{equation*}
+    c_{1,i} = x \cdot d_{1,i} \qquad \text{and} \qquad c_0 = K - x \cdot p_0.
+\end{equation*}
+
+\bigskip
+
+\noindent From condition \eqref{eq:lagr2,mu_x} can be concluded that $\mu_x = 0$. Condition \eqref{eq:lagr2,x} with equations \eqref{eq:opt.cond.2.lambda_0} and \eqref{eq:opt.cond.2.lambda_i} applied leads to
+
+\begin{equation}
+    u'(c_0) = \beta \sum_{i=1}^{N} \pi_i u'(c_{1,i}) \frac{d_{1,i}}{p_0}.
+\end{equation}
+
+\bigskip
+
+\noindent Since $y=0$, no new conclusions can be drawn from condition \eqref{eq:lagr2,mu_y}. Condition \eqref{eq:lagr2,y} shows that only if $b_0$ is large, i.e. the riskless rate is low, the investor is willing to hold only the risky asset.\\
+
+\noindent Case $(III)$ works similarly. Here one has
+
+\begin{equation*}
+    c_{1,i} = y \qquad \text{and} \qquad c_0 = K - y \cdot b_0.
+\end{equation*}
+
+\bigskip
+
+\noindent $\mu_y = 0$, due to condition \eqref{eq:lagr2,mu_y}. Conditions \eqref{eq:lagr2,mu_x} leads to no new conclusions. Condition \eqref{eq:lagr2,x} gives that only if $p_0$ is high compared to the dividends the investor will only hold the riskless asset.\\
+Through application of equations \eqref{eq:opt.cond.2.lambda_0} and \eqref{eq:opt.cond.2.lambda_i}, one finds that
+
+\begin{equation}
+    u'(c_0) = \beta \sum_{i=1}^{N} \pi_i u'(c_{1,i}) \frac{1}{b_0}.
+\end{equation}
+
+\bigskip
+
+\noindent Case $(IV)$ is the really interesting case where the prices of both assets are attractive in the sense that the investor optimally builds a portfolio from both.
+
+\begin{equation*}
+    c_{1,i} = x d_{1,i} + y \qquad \text{and} \qquad c_0 = K - x p_0 - y b_0.
+\end{equation*}
+
+\bigskip
+
+\noindent Conditions \eqref{eq:lagr2,mu_x} and \eqref{eq:lagr2,mu_y} lead to $\mu_x = \mu_y = 0$. The evaluation of conditions \eqref{eq:lagr2,x} and \eqref{eq:lagr2,y} results in
+
+\begin{equation}\label{eq:sol.prob2}
+\begin{split}
+    u'(c_0) &= \beta \sum_{i=1}^{N} \pi_i u'(c_{1,i}) \frac{d_{1,i}}{p_0}=\\
+    &= \beta \sum_{i=1}^{N} \pi_i u'(c_{1,i}) \frac{1}{b_0}.
+\end{split}
+\end{equation}
+
+\bigskip
+
+\noindent Here, too, it is apparent that each part of this equation corresponds to the derivatives of the total expected utility function \eqref{eq:opt.prob2} with respect to $c_0$, $xp_0$ and $yb_0$, which are the marginal utilities, respectively:
+
+\begin{align*}
+    \frac{\partial U}{\partial c_0} &= u'(c_0) = MU_{c_0}, \\
+    \frac{\partial U}{\partial (xp_0)} &= \beta \sum_{i=1}^{N} \pi_i u'(c_{1,i}) \frac{d_{1,i}}{p_0} = MU_{xp_0}, \\
+    \frac{\partial U}{\partial (yb_0)} &= \beta \sum_{i=1}^{N} \pi_i u'(c_{1,i}) \frac{1}{b_0} = MU_{yb_0}\\
+    &\\
+    \Rightarrow & \quad MU_{c_0} = MU_{xp_0} = MU_{yb_0}.
+\end{align*}
+
+\bigskip
+
+\noindent In case $(IV)$ the marginal utilities must all be equal, such that the investor is indifferent how to invest an additional unit of capital $\Delta K$.\\
+In case $(II)$, only $MU_{c_0} = MU_{xp_0}$ is known. However, $MU_{yb_0}$ cannot be larger than $MU_{c_0}$ and $MU_{xp_0}$, because then the investor could gain utility by reallocating invested capital from the risky investment to the riskless investment, but this would contradict the properties of an optimum, as already explained on page 12. \\
+$MU_{yb_0}$ can very well be smaller than $MU_{c_0}$ and $MU_{xp_0}$, since there is no capital that could be shifted from the riskless investment to the risky investment and thus, no possible utility gain.\\
+The same can be concluded from condition \eqref{eq:lagr2,y} after applying equations \eqref{eq:opt.cond.2.lambda_0} and \eqref{eq:opt.cond.2.lambda_i}. \\
+
+\noindent With no share of capital being invested risklessly, the investor is in the same situation as in scenario 1. Thus, the investment-consumption-ratio can again be described as
+
+\begin{equation}
+    \frac{xp_0}{c_0} = \beta^{\frac{1}{\gamma}} \cdot p_0^{1-\frac{1}{\gamma}} \cdot \bigg( \sum_{i=1}^{N} \pi_i d_{1,i}^{1-\gamma} \bigg)^{\frac{1}{\gamma}}.
+\end{equation}
+
+\bigskip
+
+\noindent Case $(III)$ works similarly. Here, $MU_{c_0}$ and $MU_{yb_0}$ are equal and $MU_{xp_0}$ must be smaller or equal. This can also be concluded from condition \eqref{eq:lagr2,x}.\\
+The relation between the share of capital invested risklessly and consumed immediately is
+
+\begin{equation}
+    \frac{yb_0}{c_0} = \beta^{\frac{1}{\gamma}} \cdot b_0^{1-\frac{1}{\gamma}},
+\end{equation}
+
+\bigskip
+
+\noindent which is similar to the relation before: The spending ratio only depends on the discount factor $\beta$, the price $b_0$ and the relative risk aversion $\gamma$.
+
+\bigskip
+
+\noindent In order to know which case applies, one can use the observations about marginal utilities: For case $(II)$ to apply $(x > 0,\ y = 0)$, $MU_{yb_0}$ cannot be larger than $MU_{xp_0}$.
+
+\begin{equation*}
+\begin{split}
+    MU_{yb_0} &\leq MU_{xp_0}\\
+    \beta \sum_{i=1}^{N} \pi_i u'(c_{1,i}) \frac{1}{b_0} &\leq \beta \sum_{i=1}^{N} \pi_i u'(c_{1,i}) \frac{d_{1,i}}{p_0}
+\end{split}
+\end{equation*}
+
+\bigskip
+
+\noindent Also, consumption at $t=1$ is only possible through the return of the risky investment, thus, $c_{1,i} = x \cdot d_{1,i}$. Therefore, one gets
+
+\begin{equation}\label{eq:2xp0b0,y0}
+\begin{split}
+    \beta \sum_{i=1}^{N} \pi_i u'(xd_{1,i}) \frac{1}{b_0} &\leq \beta \sum_{i=1}^{N} \pi_i u'(xd_{1,i}) \frac{d_{1,i}}{p_0}\\
+    &\Leftrightarrow\\
+    \frac{p_0}{b_0} &\leq \frac{\sum_{i=1}^{N} \pi_i d_{1,i}^{1-\gamma}}{\sum_{i=1}^{N} \pi_i d_{1,i}^{-\gamma}}.
+\end{split}
+\end{equation}
+
+\bigskip
+
+\noindent From (4.29a), (4.30a) and (4.32) we see that
+
+\begin{equation*}
+\begin{split}
+    p_0 &= \sum_{i=1}^N \frac{\lambda_i \cdot d_{1,i}}{\lambda_0} = \sum_{i=1}^N \pi_i \cdot m_i \cdot d_{1,i} = E(md_1),\\
+    b_0 &\geq \sum_{i=1}^N \frac{\lambda_i}{\lambda_0} \cdot 1 = E(m).
+\end{split}
+\end{equation*}
+
+\bigskip
+\noindent Since only the risky asset is invested, the stochastic discount factor only prices the risky asset. But the asset pricing formula states that \lq\lq the riskless asset is too expensive\lq\lq.\\
+(4.38) can be reformulated in terms of the stochastic discount factor $m_i$:
+
+\begin{equation*}
+    \frac{p_0}{b_0} \leq \frac{\sum_{i=1}^{N} \pi_i m_i d_{1,i}}{\sum_{i=1}^{N} \pi_i m_i} = \frac{E(md_1)}{E(m)}.
+\end{equation*}
+
+\bigskip
+
+\noindent Similarly, for case $(III)$: Here, $MU_{xp_0}$ cannot be larger than $MU_{yb_0}$. The investor gets consumption at $t=1$ only through the return of the riskless investment, therefore, $c_{1,i} = y$. \\
+Again, from (4.29a), (4.30a) and (4.32) we see that
+
+\begin{equation*}
+\begin{split}
+    p_0 &\geq E(md_1),\\
+    b_0 &= E(m).
+\end{split}
+\end{equation*}
+
+\bigskip
+\noindent Now only the riskless asset is priced, since the risky asset is not used. This means that \lq\lq the risky asset is too expensive\lq\lq . It follows that
+
+\begin{equation}\label{eq:2yp0b0,x0}
+\begin{split}
+    \beta \sum_{i=1}^{N} \pi_i u'(y) \frac{1}{b_0} &\geq \beta \sum_{i=1}^{N} \pi_i u'(y) \frac{d_{1,i}}{p_0}\\
+    &\Leftrightarrow\\
+    \frac{p_0}{b_0} \geq \frac{\sum_{i=1}^{N} \pi_i d_{1,i}}{\sum_{i=1}^{N} \pi_i} &= \sum_{i=1}^{N} \pi_i d_{1,i} = E(d_1).
+\end{split}
+\end{equation}
+
+\bigskip
+
+\noindent Thus, it is possible to determine in advance which case applies, based on the prices, tomorrow's payoffs and state probabilities:
+
+\begin{equation*}
+\begin{split}
+    \text{case } (II)& \qquad \frac{p_0}{b_0} \leq \frac{\sum_{i=1}^{N} \pi_i d_{1,i}^{1-\gamma}}{\sum_{i=1}^{N} \pi_i d_{1,i}^{-\gamma}}\\
+    \Rightarrow \quad x>0,\ y = 0&\\
+    \text{case } (III)& \qquad \frac{p_0}{b_0} \geq \sum_{i=1}^{N} \pi_i d_{1,i}\\
+    \Rightarrow \quad x=0,\ y > 0&\\
+    \text{case } (IV)& \qquad \frac{\sum_{i=1}^{N} \pi_i d_{1,i}^{1-\gamma}}{\sum_{i=1}^{N} \pi_i d_{1,i}^{-\gamma}} < \frac{p_0}{b_0} < \sum_{i=1}^{N} \pi_i d_{1,i} \\
+    \Rightarrow \quad x > 0,\ y > 0&
+\end{split}
+\end{equation*}
+
+\bigskip
+
+\noindent In order to find the optimal investment-consumption strategy the investor simply has to determine which case applies. If case $(II)$ or $(III)$ apply, he/she can easily determine the investment-consumption ratio through (4.36), or (4.37), respectively.\\
+
+\smallskip
+
+\noindent At $\gamma = 0$, the statements from equation \eqref{eq:2xp0b0,y0} and \eqref{eq:2yp0b0,x0} are equal, except for the inequality sign. Thus, the risk neutral investor would consider both investments only if the price ratio is equal to the expected return at $t=1$. Otherwise, only one investment option will be considered. Then again a one-dimensional optimization problem has to be solved.\\
+
+\noindent If case $(IV)$ applies, equation \eqref{eq:sol.prob2} represents the optimality condition. By substitution of
+
+\begin{equation*}
+    c_{1,i} = x d_{1,i} + y \qquad \text{and} \qquad c_0 = K - x p_0 - y b_0
+\end{equation*}
+
+\bigskip
+
+\noindent the problem to be solved consists of two equations, which are both two-dimensional. This can be solved by applying numerical methods or with the R-shiny implementation.
+
+\bigskip
+
+\noindent Prices are again consistent with the existence of a stochastic discount factor
+
+\begin{align}
+    \text{if}\ x>0: \qquad &p_0 = \sum_{i=1}^{N} \pi_i \beta \frac{u'(c_{1,i})}{u'(c_0)} d_{1,i} = E(md_1)\\
+    \text{if}\ y>0: \qquad &b_0 = \sum_{i=1}^{N} \pi_i \beta \frac{u'(c_{1,i})}{u'(c_0)} \cdot 1 = E(m)
+\end{align}
+
+\bigskip
+
+\noindent If multiple investors with different preferences participate in the market, their stochastic discount factors associated with the states of nature may be different. This may be the case because investors have different risk aversions or different utility functions. Yet they agree on the prices of the financial instruments. This is the case when markets are incomplete \citep{dangl2021notes}. 

@@ -1,0 +1,86 @@
+Uncertainty is a fundamental aspect of life. Every day, people are exposed to various risks. The economic and financial spheres in particular are characterized by uncertainty. When making investment or other financial decisions, there is usually no safe way to determine in advance what the value of the final outcome will be. \\
+Be it an investment decision on the stock exchange, or a simple purchase decision in the supermarket, no one can look into the future. So there is no other option than to rely on probabilities and approximate estimates.\\
+
+\noindent One way to protect yourselves from unforeseen trends is portfolio diversification. On one hand, you may miss out on some of the potential gain from an asset with rising value, but on the other hand, you are better protected against losses from assets with falling value. The goal of a risk-averse investor is to maximize a portfolio’s risk adjusted return, i.e., to optimize its risk/return tradeoff. In return, you give up part of the expected profit. Therefore, it often makes sense not to spend the entire capital on one asset, but to divide and spread it.\\
+
+\noindent I take the concepts presented in this introductory section mostly from \citep{varian2010intermediate} and \citep{ingersoll1987theory}. Some terms essential for understanding are defined and explained in the Theoretical Framework section.
+
+\bigskip
+
+\subsection{Risky investment}
+
+\noindent In a first scenario, the only available investment is a risky asset. An investor, endowed with a certain capital $K$, must today ($t=0)$ decide how much to spend on an investment portfolio and how much to consume. In order to have consumption tomorrow ($t=1$) the investor has to purchase an investment portfolio today such that the portfolio value tomorrow can be consumed. The amount of capital which is consumed today is referred to as $c_0$, the amount available for consumption tomorrow is $c_{1}$.\\
+The portfolio's payoff is not known beforehand. It is assumed that there are $N$ possible states, each is assigned a certain probability $\pi_i$ with $i\in\{1,2\dots,N\}$ and a dividend per invested unit of capital, $d_{1,i}$. The probabilities must sum to 100\% and each payoff must be larger than zero. One unit of investment has a price $p_0$, the total amount of units purchased is denoted by $x$. Thus, the amount available for consumption tomorrow is $c_{1,i} \leq x \cdot d_{1,i}$. In the meantime, there is no other way to receive income at $t=1$, so investing today is the only way to receive consumption tomorrow.\\
+
+\noindent The investor derives utility from consumption. Utility from immediate consumption is assumed iso-elastic (i.e., with constant relative risk aversion $\gamma$):
+
+\begin{equation} \label{eqn:isoelastic}
+    u(c) = \left\{ \begin{matrix}
+                \frac{c^{1-\gamma}-1}{1-\gamma} & \text{if } \gamma \neq 1 , \\
+                \ln(c) & \text{if } \gamma = 1.
+            \end{matrix}\right.
+\end{equation}
+
+\bigskip
+
+\noindent Since future consumption $c_1$ is uncertain, the investor seeks to maximize expected utility, which he/she determines in a time-separable way as 
+
+\begin{equation}\label{eqn:Zielfunktion}
+    U = u(c_0) + \beta \cdot \sum_{i=1}^{N} \pi_i \cdot u(c_{1,i})
+\end{equation}
+
+\smallskip
+
+\noindent where
+
+\begin{equation}
+    \begin{matrix*}[r]
+        c_0, c_{1,i} & > & 0,\\
+        \beta & \leq & 1,\\
+        \gamma & > & 0.
+    \end{matrix*}
+\end{equation}
+
+\bigskip
+
+\noindent In order to express the investor's time preference the discount factor $\beta$ is introduced. It can be chosen according to the weight the investor places on the utility received tomorrow compared to today.\\
+The utility at $t = 1$ is stochastic. Expected utility can be calculated as the sum of the resulting utility in each state, each multiplied by the probability of its occurrence and the discount factor $\beta$.\\
+
+\noindent Ultimately, the investor seeks to maximize the utility function \eqref{eqn:Zielfunktion} with the following constraints:
+
+\begin{equation}\label{eq:scenario1_constraints}
+    \begin{matrix*}[l]
+        c_0 & = & K - x \cdot p_0, \\
+        c_{1,i} & = & x \cdot d_{1,i},\\
+        x & \geq & 0.
+    \end{matrix*}
+\end{equation}
+
+
+\bigskip
+
+\subsection{Risky and riskless investment}
+
+\noindent In another scenario, it is assumed that the investor has an additional option to receive income tomorrow: a riskless investment. \\
+One unit of the riskless investment has a price of $b_0$ and the quantity of riskless units purchased is denoted by $y$. The investor receives a fixed payment of $1$ per unit in each state at $t=1$. So total consumption tomorrow  is the sum of a risky component $x \cdot d_{1,i}$ (the dividend) and a riskless component $y \cdot 1$ (savings in a riskless savings account). \\
+
+\noindent The utility function to be maximized remains the same as in the first scenario, but there are new constraints:
+
+\begin{equation}\label{eq:scenario2_constraints}
+    \begin{matrix*}[l]
+        c_0 & = & K - x \cdot p_0 - y \cdot b_0, \\
+        c_{1,i} & = & x \cdot d_{1,i} + y,\\
+        x & \geq & 0,\\
+        y & \geq & 0.
+    \end{matrix*}
+\end{equation}
+
+\bigskip
+
+\noindent The investor seeks to maximize the total expected utility by finding the optimal combination of $x$ and $y$. This also leaves the possibility of not using one of the two investment options at all.
+
+\bigskip
+
+\subsection{Execution}
+
+\noindent The problem was implemented and visualized as an R-Shiny project. This makes it very easy to identify the optimum and the parameters can be selected interactively.
