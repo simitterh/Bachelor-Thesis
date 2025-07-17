@@ -13,10 +13,10 @@ In this thesis, I analyze a two-period consumption and investment decision probl
 - `Bachelor_Thesis_Portfolio_Choice_Optimal_Investment_Consumption_Decision.pdf`  
   The final version of the thesis document.
 
-- `R-Code/`  
+- `code/`  
   R scripts for simulating and visualizing the optimal investment-consumption decision using a Shiny app.
 
-- `LaTeX/`  
+- `latex/`  
   LaTeX source files used to typeset the thesis.
 
 ## Highlights
