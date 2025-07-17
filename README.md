@@ -35,7 +35,7 @@ To run the interactive R Shiny app:
 
 ## Author
 
-Simon Mitterhofer
+Simon Mitterhofer  
 Supervised by: a.o. Univ.Prof. DDr. Thomas Dangl  
 Institute of Management Science, TU Wien
 
